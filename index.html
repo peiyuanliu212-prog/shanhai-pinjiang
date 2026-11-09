@@ -316,6 +316,7 @@ body { background: #EFE8D8; color: #26313B; }
 .axis-fill.shen { background: #3E7C59; }
 .axis-fill.ye { background: #B23A2C; }
 .axis-pool { font-weight: 700; color: #A86C3E; }
+.force-axis-brief { margin-bottom: 8px; padding: 8px 10px; background: rgba(178, 58, 44, .08); border: 1px solid rgba(178, 58, 44, .35); border-radius: 10px; font-size: 13px; color: #26313B; }
 .keji-tag { font-size: 10px; font-weight: 700; color: #FFF7EA; background: #26547C; border-radius: 6px; padding: 1px 5px; margin-left: 5px; vertical-align: 2px; }
 </style>
 </head>
@@ -977,6 +978,11 @@ const CHAPTERS = [
     { label:'C', text:'两信都收下，再看看', kind:'站队',
       fixed:{ effects:{ network:1 }, tier:'僵持', bio:'两封信你都收下了，回信一封没写。拖，有时候也是一种表态。' } }
   ],
+  forceAxis:{ brief:'正式抉择之前，昆仑使者与大荒诸部的信使都还在帐外候着——这一章的路，从你先表明立场开始。', options:[
+    { label:'A', text:'吾心近天', kind:'表态', axis:'shen', axisVal:1, fixed:{ effects:{}, tier:null, bio:'' } },
+    { label:'B', text:'吾心向荒', kind:'表态', axis:'ye', axisVal:1, fixed:{ effects:{}, tier:null, bio:'' } },
+    { label:'C', text:'吾心在人间', kind:'表态', axis:'ren', axisVal:0, fixed:{ effects:{}, tier:null, bio:'' } }
+  ]},
   axisVariants:{
     shen:{ brief:'符诏在案，瑶池的杯沿还留着酒痕。使者说：你这一路的心思，天上都看在眼里。登天之门，只为你开一次。', options:[
       { label:'A', text:'整冠登天述职', kind:'谋划', check:'politics', axis:'shen', axisVal:1,
@@ -1029,7 +1035,7 @@ const CHAPTERS = [
     { label:'C', text:'丘上静坐一日', kind:'自保',
       fixed:{ effects:{ health:5 }, tier:'僵持', bio:'你在丘上坐了一日，什么都没定。风把图卷翻到了最后一页——还是空的。' } }
   ]},
-  { n:17, name:'归神归野归人的预演', brief:'巡游将尽，三条路在归墟之前先交汇了一次：天庭再遣使，大荒再举火，人间的村落也派人送来了粮——他们都想知道，你最后会站在哪边。', options:[
+  { n:17, name:'三方来书 · 归途表态', brief:'巡游将尽，三条路在归墟之前先交汇了一次：天庭再遣使，大荒再举火，人间的村落也派人送来了粮——他们都想知道，你最后会站在哪边。', options:[
     { label:'A', text:'受天庭之编', kind:'站队', axis:'shen', axisVal:1,
       fixed:{ effects:{ fame:1, flag:'leanShen' }, tier:null, bio:'你受了天庭的编目之请。图卷的最后一卷，将写在天上的册子里。' } },
     { label:'B', text:'受大荒之火', kind:'站队', axis:'ye', axisVal:1,
@@ -1037,6 +1043,11 @@ const CHAPTERS = [
     { label:'C', text:'受人间之粮', kind:'站队',
       fixed:{ effects:{ loyalty:1, flag:'leanRen' }, tier:null, bio:'你收下了村落的粮，认认真真道了谢。送粮的人愣了半天——他们没想到。' } }
   ],
+  forceAxis:{ brief:'三方的书信都摊在案上：天庭的册子、大荒的火种、人间的粮单。落笔回任何一方之前，先定下你自己的立场。', options:[
+    { label:'A', text:'向天庭表明归心', kind:'表态', axis:'shen', axisVal:1, fixed:{ effects:{}, tier:null, bio:'' } },
+    { label:'B', text:'向大荒表明归心', kind:'表态', axis:'ye', axisVal:1, fixed:{ effects:{}, tier:null, bio:'' } },
+    { label:'C', text:'向人间表明归心', kind:'表态', axis:'ren', axisVal:0, fixed:{ effects:{}, tier:null, bio:'' } }
+  ]},
   axisVariants:{
     shen:{ brief:'天庭的使者这一次带来了正式的册封文书，只差你的印。文书上写着：图成之日，位列仙班。', options:[
       { label:'A', text:'落印受封', kind:'谋划', check:'politics', axis:'shen', axisVal:1,
@@ -1151,7 +1162,7 @@ const EVENTS = [
       { label:'B', text:'照单全收', effects:{ network:1, flag:'betrayed' }, result:'你签了盟书，还夸对方的字写得端正。' }
     ] },
   { id:'E5', title:'瑶池信使', weight:50, bondRewrite:{ bond:'xianshi', weakType:'risk-up', strongType:'branch',
-      weak:{ text:'借陆吾之名先探口风', check:'nerve', win:{ effects:{ fame:2 }, result:'信使看在昆仑守将的面上，提前漏了底：天庭的意思，是召，也是试。' }, lose:{ effects:{ health:-6, troops:-100 }, result:'信使不肯多言，还顺手记下了你的营防。这一局，先输了一步。' } },
+      weak:{ text:'凭女娃旧谊先探口风', check:'nerve', win:{ effects:{ fame:2 }, result:'信使认得精卫衔石的执拗，倒先松了口：天庭的意思，是召，也是试。' }, lose:{ effects:{ health:-6, troops:-100 }, result:'信使不肯多言，还顺手记下了你的营防。这一局，先输了一步。' } },
       strong:{ text:'西王母亲笔压惊', check:'nerve', win:{ effects:{ fame:3, flag:'yaochiLetter' }, result:'信使展开西王母的亲笔：图未成之前，谁也不许动你。天庭的使者，当场收了威风。' }, lose:{ effects:{ health:-8, troops:-150 }, result:'亲笔也没压住场面。信使撕破了脸，你退守内营，折了些人手。' } } },
     story:'天庭的信使先到了，话说得客气，站的位置却堵住了你的退路。',
     focus:'接诏，还是拖？',
@@ -1472,6 +1483,26 @@ function drawBatch(people, boostS, linkName) {
     for (let i = 0; i < pool.length; i++) { r -= wOf(pool[i]); if (r <= 0) { idx = i; break; } }
     out.push(pool.splice(idx, 1)[0]);
   }
+  { /* S3（定案 Q2）：客籍每批至多 1 名——超额客籍放回池中，按权重顺延补抽非客籍 */
+    const isK = p => !!KEJI[p.name];
+    if (out.filter(isK).length > 1) {
+      const kept = [], extra = [];
+      let seen = false;
+      for (const p of out) { if (isK(p)) { if (seen) { extra.push(p); continue; } seen = true; } kept.push(p); }
+      const back = pool.concat(extra);
+      while (kept.length < 5 && back.length) {
+        const cand = back.filter(p => !isK(p));
+        if (!cand.length) break;
+        let total = 0; for (const p of cand) total += wOf(p);
+        let r = rngNext() * total, pickIdx = cand.length - 1;
+        for (let i = 0; i < cand.length; i++) { r -= wOf(cand[i]); if (r <= 0) { pickIdx = i; break; } }
+        const chosen = cand[pickIdx];
+        back.splice(back.indexOf(chosen), 1);
+        kept.push(chosen);
+      }
+      out.length = 0; out.push(...kept);
+    }
+  }
   if (boostS) { /* 保底位洗牌，避免 S/A 永远排在最前 */
     for (let i = out.length - 1; i > 0; i--) { const j = Math.floor(rngNext() * (i + 1)); [out[i], out[j]] = [out[j], out[i]]; }
   }
@@ -1670,7 +1701,7 @@ function lockAttr(key) {
    数值口径（定案 v2 三档制）：fill 结算 bonus = 2 + min(cap, max(0, ref − baseAttrs))；
    FULL ref 90 / cap 15、LITE ref 86 / cap 10、BASE 只保底 +2；单对总加成硬顶 +22（保底＋补差合计，超出按补差等比缩）；
    多员型补差合计另封顶（FULL 24 / LITE 14），集齐需求人数生效、多拿不叠加（按成员表序取前 need 人）；
-   全队型 +1 仅未满 90 的项、单局硬上限 +12（本作无全队型，框架保留）；宿敌 −20% 单项封顶 −12，化敌为友＝精确回滚＋各 +4（每局 ≤2 次，本作仅 1 对）；
+   全队型 +1 仅未满 90 的项、单局硬上限 +12（本作四凶为全队型）；宿敌 −20% 单项封顶 −12，化敌为友＝精确回滚＋各 +4（每局 ≤2 次，本作仅 1 对）；
    临时型另带骑手：下一场章节判定 +3；机制型另带：本局免费改命 1 次（映射本作既有「改命」回滚，见 btn-bond-rewind）。
    铁律：羁绊永远只从 S.baseAttrs（锁定原值快照）重算，禁止在 S.attrs 上叠加；结算顺序＝宿敌→补强→全队型。 */
 const BOND_CLS = { FULL: { ref: 90, cap: 15 }, LITE: { ref: 86, cap: 10 }, BASE: { ref: -1, cap: 0 } };
@@ -1681,7 +1712,7 @@ const RADAR_RATE = 0.65;  /* v5.25 羁绊雷达：看广告后下一批以此概
    R＝round(clamp((1−p²)/p², clampMin, clampMax)×B×rewardK)，B＝胜档功业点（TIER_POINTS）；
    奖励只走 creditMerit 功业钱包，白名单外（属性/成功率/补强/定向/改命/可换属性货币）一律不发；
    前端只给把握三档（按 p² 取档）＋拼赢 +X，p 与赔率永不外露（仅约束 A 组件，见定案 C2 口径） ---------- */
-const AXIS_CFG = { reachRatio: 0.60, leadRatio: 0.15, U: 21, rateStep: 4, shenKeys: ['politics', 'literature', 'insight'], yeKeys: ['might', 'cavalry', 'nerve'] };  /* 定案：神性/野性决定命运，12 项属性决定能力；U 为内容冻结的单轴可达上沿（双向配平取小） */
+const AXIS_CFG = { reachRatio: 0.60, leadRatio: 0.15, U: 21 };  /* 定案：神性/野性决定命运（分岔/结局池/章首回看），绝不进入任何判定公式；U 为内容冻结的单轴可达上沿（双向配平取小） */
 const GAMBLE = { startTokens:1, tokenCap:3, perChapter:1, requireBond:true, earnChapterEvery:5, earnOnBondTrigger:true, rewardK:1.0, clampMin:0.25, clampMax:1.5, feelTiers:[0.7,0.45], tokenRefundOnWin:1, rateBonus:8, earnAchIds:['gambleWin','scenes3'] };
 function grantWagerTokens(n) {  /* 拼令发放单一入口：统一钳上限，返回实际发放数 */
   if (!n || n <= 0 || typeof S.gambleTokens !== 'number') return 0;
@@ -1718,7 +1749,7 @@ const BONDS = [
   { id:'kunlun', a:'西王母', b:'陆吾', name:'昆仑主从', cls:'LITE', type:'mech', desc:'瑶池之主与昆仑守门者，主从多年，山门内外自有默契。' }
 ];
 
-/* ---------- 双轴（定案 Q1 浅门控）：只决定叙事路线/结局池/章首既有通道小修正 ---------- */
+/* ---------- 双轴（定案 Q1 浅门控）：只决定叙事路线（分岔）/结局池/章首回看展示，绝不进入任何判定公式 ---------- */
 function axisReach() { return Math.ceil(AXIS_CFG.U * AXIS_CFG.reachRatio); }
 function axisLead() { return Math.ceil(AXIS_CFG.U * AXIS_CFG.leadRatio); }
 function axisPool() {
@@ -1740,14 +1771,14 @@ function applyAxis(opt) {
   if (opt.axis === 'shen') S.axis.shen += v; else if (opt.axis === 'ye') S.axis.ye += v;
   showGameToast(opt.axis === 'shen' ? `🕊 神性 +${v}` : `🔥 野性 +${v}`);
 }
-function axisRateDelta(key) {  /* 章首修正：与天命同为加算通道，一档小幅、不叠层、不进判定公式本体 */
-  const a = S.axis || { shen: 0, ye: 0 };
-  const dom = axisTendency();
-  if (dom === 'ren') return 0;
-  const lead = Math.abs(a.shen - a.ye);
-  if (lead < 3 || Math.max(a.shen, a.ye) < 5) return 0;
-  const keys = dom === 'shen' ? AXIS_CFG.shenKeys : AXIS_CFG.yeKeys;
-  return keys.includes(key) ? AXIS_CFG.rateStep : 0;
+function chooseForceAxisOption(o) {  /* S8：第 13/17 章强制标签事件（章首表态位）——每个选项都带轴标签，任选必登记立场，选后进入本章正文抉择 */
+  if (o.axis === 'shen' || o.axis === 'ye') applyAxis(o);
+  else showGameToast('你把立场留在了人间');
+  S.forceAxisPending = false;
+  const fl = 'axisStance' + S.ch;
+  if (S.flags && !S.flags.includes(fl)) S.flags.push(fl);
+  renderChapterOptions(curChapter());
+  saveGame('chapter');
 }
 function renderAxisBar() {
   const el = $('ch-axis');
@@ -1826,7 +1857,7 @@ function recomputeBonds() {
     if (B.type === 'temp') S.bondTempNext = true;
     if (B.type === 'mech') S.bondFreeRewind = Math.max(S.bondFreeRewind || 0, 1);
   }
-  /* 第三遍：全队型（本作暂无，框架保留：+1 仅未满 90 的项，计入单局硬上限 +12 按触发顺序截断） */
+  /* 第三遍：全队型（本作四凶：+1 仅未满 90 的项，计入单局硬上限 +12 按触发顺序截断） */
   let teamGain = 0;
   for (const B of BONDS) {
     if (B.type !== 'team') continue;
@@ -2131,7 +2162,7 @@ function fateRateDelta(key) {
 }
 
 function successRate(checkKey) {
-  return clamp(Math.round(35 + (S.attrs[checkKey] - 60) * 0.8 - S.deBuPei * 3) + fateRateDelta(checkKey) + axisRateDelta(checkKey), 10, 90);
+  return clamp(Math.round(35 + (S.attrs[checkKey] - 60) * 0.8 - S.deBuPei * 3) + fateRateDelta(checkKey), 10, 90);
 }
 
 /* ---------- 后果结算（任务书 §4.4） ---------- */
@@ -2372,6 +2403,7 @@ function enterChapter(n) {
   S.gambleArm = false;  /* v5.26：武装态不跨章保留 */
   S.lastSettle = null;  /* 判定落盘：新章首清除上章结算记录（随本章章首存档一并覆写） */
   const ch = curChapterOf(n);
+  S.forceAxisPending = !!(ch.forceAxis);  /* S8：分岔章章首强制表态位 */
   let note = '';
   if (n === 20) {
     S.health = clamp(S.health + 8, 0, 100); if (S.dmg) S.dmg.heal += 8;
@@ -2418,7 +2450,9 @@ function renderChapterOptions(ch) {
   syncAllAdBtns();
   const blind = !!(S.dailyMod && S.dailyMod.blind);  /* v5.26：blind 词缀局隐藏 A 入口（把握档会泄露词缀要藏的成功率信息） */
   const wBtn = $('btn-wager');
-  const hasCheck = ch.options.some(o => o.check);
+  const inForce = !!(S.forceAxisPending && ch.forceAxis);  /* S8 */
+  const opts = inForce ? ch.forceAxis.options : ch.options;
+  const hasCheck = opts.some(o => o.check);
   const canArm = hasCheck && !blind && wagerAvailable();
   wBtn.classList.toggle('hidden', !hasCheck || blind);
   wBtn.classList.toggle('on', !!S.gambleArm);
@@ -2430,7 +2464,7 @@ function renderChapterOptions(ch) {
   }
   const box = $('ch-options');
   box.classList.remove('hidden');
-  box.innerHTML = ch.options.map((o, i) => {
+  box.innerHTML = (inForce ? `<div class="force-axis-brief">${ch.forceAxis.brief}</div>` : '') + opts.map((o, i) => {
     let sub = o.kind;
     if (o.check) {
       const r = successRate(o.check);
@@ -2456,7 +2490,7 @@ function renderChapterOptions(ch) {
     }
     return `<button class="opt-btn" data-opt="${i}"><b>${o.label}.</b> ${o.text}<span class="opt-sub">${sub}</span>${preview}</button>`;
   }).join('');
-  box.querySelectorAll('[data-opt]').forEach(b => b.onclick = () => chooseChapterOption(ch.options[+b.dataset.opt]));
+  box.querySelectorAll('[data-opt]').forEach(b => b.onclick = () => inForce ? chooseForceAxisOption(opts[+b.dataset.opt]) : chooseChapterOption(opts[+b.dataset.opt]));
 }
 function refreshChapterUI() {
   const fateEl = $('ch-fate');
@@ -3324,13 +3358,13 @@ function exportSaveCode() {
   const bytes = new TextEncoder().encode(payload);
   let bin = '';
   for (let i = 0; i < bytes.length; i += 8192) bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 8192));
-  return 'LS19-' + btoa(bin);
+  return 'SJ19-' + btoa(bin);
 }
 let __importArm = false;
 function importSaveCode() {
   const btn = $('btn-code-import');
   const raw = String(($('save-code').value || '')).trim();
-  if (!raw.startsWith('LS19-')) { showGameToast('存档码格式不对（LS19- 开头）'); return; }
+  if (!raw.startsWith('SJ19-') && !raw.startsWith('LS19-')) { showGameToast('存档码格式不对（SJ19- 开头）'); return; }
   let obj = null;
   try {
     const bin = atob(raw.slice(5).replace(/\s+/g, ''));
