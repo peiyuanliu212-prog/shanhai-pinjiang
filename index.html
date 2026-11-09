@@ -1123,143 +1123,155 @@ const EV_ART = {
   E14: 'data:image/webp;base64,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'
 };
 const EVENTS = [
-  { id:'E1', title:'夜宿无名冢', weight:50,
-    story:'行军错过了宿头，队伍在一片无名冢旁扎营。半夜，有老卒说听见冢里有人在背图卷上的字。',
-    focus:'荒野的夜，胆气比干粮更顶用。',
+  { id:'E1', title:'彘践禾田', weight:50,
+    story:'过浮玉山时，沿途部落的禾田刚抽穗。一头身形如猪、脚却是鸡爪的彘兽不知从哪片林子里窜出来，在田里连滚带刨，一夜工夫，好好一片禾苗踩塌了半边。田主们堵在营门口，不敢骂，只敢哭。',
+    focus:'田是人家的命，兽是大荒的兽——这笔账，得有人认。',
     options:[
-      { label:'A', text:'亲自巡营压阵', axis:'ye', axisVal:1, effects:{ loyalty:1, fame:1 }, result:'你提灯巡了一夜营。所谓声响，不过是风穿空冢——可全军都觉得，有你在，这夜不算难熬。' },
-      { label:'B', text:'记入异闻一节', effects:{ controversy:1 }, result:'你把这事记进了图卷的异闻栏。真假不论，读的人自会判断。' },
-      { label:'C', text:'连夜拔营', effects:{ health:-4 }, result:'你连夜换了营地。老卒嘟囔：跑得比谁都快。' }
+      { label:'A', text:'挽弓驱彘入山', axis:'ye', axisVal:1, check:'might',
+        win:{ effects:{ loyalty:1, fame:1 }, result:'你挽弓在田埂上追了它三个山头，彘兽到底怕了人势，窜回深山。田主们把踩剩的禾苗拢了拢，冲你磕了个头——这一路的威名，有一半是这么来的。' },
+        lose:{ effects:{ health:-5 }, result:'彘兽回头一拱，你躲得慢了半步，腰上青了一大片。兽是赶跑了，你也在田埂上坐了半天才缓过来。' } },
+      { label:'B', text:'掘沟设栏护田', effects:{ health:-2, loyalty:1 }, result:'你带着部众挖沟、竖栏，忙了整整一日。田主们送来一筐新摘的野果——沟挖好的那晚，彘兽在林子边上转了两圈，没敢再下来。' },
+      { label:'C', text:'猎彘分飨', effects:{ controversy:1, loyalty:1 }, result:'当晚营里添了一道肉。田主们分到最肥的那块，孩子们围着火堆听你们讲怎么撵的兽。这事传出去，有人说你护田，也有人说你就好这一口。' }
     ] },
-  { id:'E2', title:'白泽夜访', weight:0,
-    story:'传说通晓万物之情的白泽，在营外站了一夜。天亮前，它开口问你：图卷写到哪一页了？',
-    focus:'答得上来，是机缘；答不上来，是笑话。',
+  { id:'E2', title:'白泽献图', weight:0,
+    story:'三更时分，营外有兽踏月而来，狮身独角，开口是人言。它说它叫白泽，走遍大荒，是来「卖」一样东西的——它脑子里记着的九千种异兽形状，正与你写的图卷相冲的三处。它不要粮，不要名，只想听你这一路亲眼见过的、图上还没来得及写的异闻。',
+    focus:'它记着的，比你写的全；可它要的价，是你这一路的见闻本身。',
     options:[
-      { label:'A', text:'以图卷实情相告', axis:'shen', axisVal:1, check:'intellect',
-        win:{ effects:{ fame:2 }, result:'白泽听完，替你订正了三处兽名。它说：肯写真的图，不多了。' },
-        lose:{ effects:{ fame:-1 }, result:'你支支吾吾。白泽转身没入晨雾，只留下一句：慢慢写。' } },
-      { label:'B', text:'留它入队同行', effects:{ network:1 }, result:'白泽没答应，也没拒绝。此后每逢岔路，营外总有它的脚印。' }
+      { label:'A', text:'以异闻相换', axis:'shen', axisVal:1, effects:{ controversy:-2, fame:2, bondClues:'zhouye' }, result:'你把无名冢的夜声、泽畔的九头影子，一件件说给它听。白泽听完，闭目半晌，在你图卷上改了三处兽名，又添了一页——画的是烛龙昼夜的轮廓，注语只有四个字：「昼夜有司。」它说：这一页，算赠的。' },
+      { label:'B', text:'请它校一页图', effects:{ fame:1 }, result:'它只肯校一页，还挑了错最少的那页。校完起身就走，走出十步又回头：「写图的人，先得敢把自己的见闻拿出来换——下次吧。」' },
+      { label:'C', text:'辞而不受', effects:{ loyalty:1 }, result:'你说，图上的字，宁可慢些，也要自己走到、看到再写。白泽盯着你看了很久，竟点了点头，转身没入雾里。那晚守夜的部众都说：头儿连白泽的便宜都不占。' }
     ] },
-  { id:'E3', title:'巡游断粮', weight:50, bondRewrite:{ bond:'tushan', weakType:'safe-low', strongType:'branch',
+  { id:'E3', title:'涂山雾瘴', weight:50, bondRewrite:{ bond:'tushan', weakType:'safe-low', strongType:'branch',
       weak:{ text:'九尾狐引路寻野谷', effects:{ loyalty:1 }, result:'九尾狐在林间三现，引你们找到一处野谷。粮还是那些粮，可人心稳住了。' },
       strong:{ text:'九尾与女娇同开涂山仓', effects:{ loyalty:3, troops:-50 }, result:'九尾狐与涂山女娇联手开仓济众，又引山民来投。断粮的坎，硬是走成了招人的路——只是涂山的存粮也见了底。' } },
-    story:'粮队迟了五日，营里的余粮只够再撑两天，沿途又逢荒年。',
-    focus:'粮尽之前，人心先尽。',
+    story:'涂山一带起了雾瘴，白日里也是灰蒙蒙一片。粮队在瘴气里迷了向，已经迟了五日；营里的余粮见底，几个部众夜里咳得睡不着。',
+    focus:'瘴气不认人，粮尽之前，先把人心稳住。',
     options:[
-      { label:'A', text:'先减主将口粮', axis:'ye', axisVal:1, effects:{ loyalty:2, health:-4 }, result:'你的碗先空了三天。此后分粮时，再没人抢过。' },
-      { label:'B', text:'向沿途村落借粮立据', effects:{ network:1, controversy:1 }, result:'借据写了厚厚一沓。粮借到了，名声借出去了一半。' },
-      { label:'C', text:'采野果充饥硬撑', effects:{ health:-6, loyalty:1 }, result:'野果酸得倒牙。可全军都看见了：你吃的是最酸的那一把。' }
+      { label:'A', text:'亲负粮袋蹚瘴接应', axis:'ye', axisVal:1, effects:{ loyalty:2, health:-4 }, result:'你背着空粮袋往瘴气里走，迎着粮队的方向喊山歌。半夜，雾里真有了回应。粮接上了，你也咳了整整三日。' },
+      { label:'B', text:'请山民引路出瘴', check:'politics',
+        win:{ effects:{ network:1 }, result:'山民认得瘴气的脾气：哪阵风起往哪边走。他们引着粮队绕出白雾，还跟你约了往后互通消息。' },
+        lose:{ effects:{ controversy:1 }, result:'寻来的山民也说不准瘴路。粮队又耽搁了一日，这事传出去，倒成了你「连路都摸不清」的笑谈。' } },
+      { label:'C', text:'立瘴标记入图候雾自散', axis:'shen', axisVal:1, effects:{ health:-2 }, result:'你在瘴气边缘逐段立标记、记风向，写满了一页图注。等雾散时，后来人照着你的标记走，不必再吃这份苦。' },
+      { label:'D', text:'分队轻装先行探路', effects:{ troops:-50, loyalty:1 }, result:'轻装小队先一步探出瘴薄的口子，大队随后跟出。只是辎重队掉了一截，几十个弟兄留在了雾那头休整。' }
     ] },
-  { id:'E4', title:'盟书两印', weight:50, bondRewrite:{ bond:'zhanshen', weakType:'risk-up', strongType:'branch',
+  { id:'E4', title:'旧谱验盟', weight:40, bondRewrite:{ bond:'zhanshen', weakType:'risk-up', strongType:'branch',
       weak:{ text:'托刑天旧名验盟书', check:'insight', win:{ effects:{ fame:1 }, result:'使者看在刑天之名的份上松了口：盟是真的，心也是真的，就看你接不接。' }, lose:{ effects:{ loyalty:-1 }, result:'使者不吃这一套，拂袖而去，盟事悬在了半空。' } },
       strong:{ text:'刑天蚩尤双印验盟', check:'insight', win:{ effects:{ network:1, flag:'seenThrough' }, result:'两位战神的旧印一对，盟书的夹层立现：对方借盟约探你的虚实。你将计就计，反订了一局。' }, lose:{ effects:{ loyalty:-2 }, result:'连双印都验不出破绽。盟约作废，两家就此生了心结。' } } },
-    story:'邻部送来盟书，印是真的，纸里却夹着一张你方巡游的路线图。',
-    focus:'信，还是防？',
+    story:'邻部使者捧着一卷旧谱来结盟，说谱是刑天当年舞干戚时留下的遗谱，谱尾的铭文，就是两家的旧约。谱是旧的，字是真迹——可越是像真的，你心里越不踏实。',
+    focus:'谱能验，心难验；这一回，先验谱。',
     options:[
-      { label:'A', text:'当场验盟扣使', axis:'shen', axisVal:1, check:'insight',
-        win:{ effects:{ fame:1, flag:'seenThrough' }, result:'使者招了底细。你连夜改了路线，盟书照签——签的是你改过的那份。' },
-        lose:{ effects:{ loyalty:-2 }, result:'冤枉了人。盟书作废，两家从此有了心结。' } },
-      { label:'B', text:'照单全收', effects:{ network:1, flag:'betrayed' }, result:'你签了盟书，还夸对方的字写得端正。' }
+      { label:'A', text:'逐字辨谱上铭文', axis:'shen', axisVal:1, check:'literature',
+        win:{ effects:{ fame:1, flag:'seenThrough', bondClues:'zhanshen' }, result:'铭文的刀法有三处对不上年头。你点出来时，使者的额头见了汗：谱是真谱，约却添了两行新字。你划掉添字，照旧约签盟——这一辨，辨出了威名。' },
+        lose:{ effects:{ loyalty:-2 }, result:'你把真谱认成了假的。使者收谱而去，话说得很冷：连刑天的字都不认得，还写什么图。两家就此生了心结。' } },
+      { label:'B', text:'照谱结盟', effects:{ network:1, flag:'betrayed' }, result:'你没多验，蘸印签下。使者笑得格外殷勤——殷勤得让你半夜醒了一回。' },
+      { label:'C', text:'扣谱遣使回访', effects:{ controversy:1, fame:1 }, result:'你把旧谱留下，派自己人跟着使者回访邻部。真假不论，这份「不好糊弄」先传了出去。' }
     ] },
-  { id:'E5', title:'瑶池信使', weight:50, bondRewrite:{ bond:'xianshi', weakType:'risk-up', strongType:'branch',
+  { id:'E5', title:'蟠桃帖', weight:50, bondRewrite:{ bond:'xianshi', weakType:'risk-up', strongType:'branch',
       weak:{ text:'凭女娃旧谊先探口风', check:'nerve', win:{ effects:{ fame:2 }, result:'信使认得精卫衔石的执拗，倒先松了口：天庭的意思，是召，也是试。' }, lose:{ effects:{ health:-6, troops:-100 }, result:'信使不肯多言，还顺手记下了你的营防。这一局，先输了一步。' } },
       strong:{ text:'西王母亲笔压惊', check:'nerve', win:{ effects:{ fame:3, flag:'yaochiLetter' }, result:'信使展开西王母的亲笔：图未成之前，谁也不许动你。天庭的使者，当场收了威风。' }, lose:{ effects:{ health:-8, troops:-150 }, result:'亲笔也没压住场面。信使撕破了脸，你退守内营，折了些人手。' } } },
-    story:'天庭的信使先到了，话说得客气，站的位置却堵住了你的退路。',
-    focus:'接诏，还是拖？',
+    story:'瑶池的帖子送到营里：西王母设宴，邀你赴会。帖子写得华美，落款的日子却正卡在巡游最紧要的一段路上。去，是三日的耽搁；不去，是拂了天上最不好拂的面子。',
+    focus:'帖上是字，帖外是局。',
     options:[
-      { label:'A', text:'设席接诏探虚实', axis:'shen', axisVal:1, check:'nerve', scene:true,
-        win:{ effects:{ fame:2 }, result:'席间三言两语，你探出了天庭的底线。信使走时，脸色比来时客气多了。' },
-        lose:{ effects:{ health:-8, troops:-150 }, result:'席间翻了脸。信使摔杯而去，你的营防也被看了个透。' } },
-      { label:'B', text:'称病不见', effects:{ fame:-1, troops:-50 }, result:'你「病」了三天。信使走时说：病得是时候。' }
+      { label:'A', text:'赴宴探意', axis:'shen', axisVal:1, check:'politics',
+        win:{ effects:{ fame:2 }, result:'席上觥筹之间，你把该探的话探了个遍：图卷写得，写图的人也动得。回营时你带了一身果香，威名却比果香传得远。' },
+        lose:{ effects:{ health:-6, troops:-100 }, result:'宴是好宴，话却一句没探出来。回程赶路赶得太急，队伍在山口折了些人手，你也累病了一场。' } },
+      { label:'B', text:'辞帖自巡', axis:'ye', axisVal:1, effects:{ loyalty:1, fame:-1 }, result:'你回帖写得恭敬，人却一步没挪窝。部众都说：头儿连瑶池的宴都敢辞。只是这话传到天上，好听不好听，就不知道了。' },
+      { label:'C', text:'遣使回帖致意', effects:{ network:1 }, result:'你备了厚礼，派能言的使者赴宴致意。礼数周全，路也没耽误——使者回来还带了两句瑶池的口风。' }
     ] },
-  { id:'E6', title:'捷报与讣告', weight:50,
-    story:'新降一部的捷报和一位老部众的讣告，同一匹快马送到。那人从昆仑墟下就跟着你了。',
-    focus:'赢了巡游的人，未必赢得过这一夜。',
+  { id:'E6', title:'送骨归山', weight:30,
+    story:'跟队最久的老部众殁在了半路。他是中山脚下的人，临终前攥着你的袖子，只说了一句：图……快写完的时候，送我回山。他老家在归途反方向，要绕三日的路；图卷的行程，一日都耽误不起——这是你自己定的规矩。',
+    focus:'规矩是你定的，人也是你带出来的。',
     options:[
-      { label:'A', text:'厚葬并抚恤其家', axis:'ye', axisVal:1, effects:{ loyalty:2, fame:1 }, result:'葬礼那天，全军缟素。此后你的人，巡游再险也不退了。' },
-      { label:'B', text:'简办，行程要紧', effects:{ troops:50 }, result:'你说了句「等图成后再说」。这句话，你记了很多年。' }
+      { label:'A', text:'亲送遗骨归山', axis:'ye', axisVal:1, effects:{ loyalty:2, health:-3, flag:'homegoing' }, result:'你背着他的骨殖走了三日，翻过他说的那座山。山里的人把他葬在能望见中山的地方。你回到队里时瘦了一圈，可那一夜，全营的人睡得都比往常沉。' },
+      { label:'B', text:'就地立冢', effects:{ loyalty:1 }, result:'你选了向阳的坡，亲手垒了冢，冢前立一块无字石——图成之后，你会回来刻。他家里人那边，你托驿路带了话和抚恤。' },
+      { label:'C', text:'骨殖随队，至图成再议', effects:{ ambition:1, controversy:1 }, result:'骨殖用粗布裹了，随辎重同行。部众没人说什么，只是行军时，总有人替那辆车扶一把。有些话，不说，比说更重。' }
     ] },
-  { id:'E7', title:'瑞兽过境', weight:50, bondRewrite:{ bond:'ruisheng', weakType:'safe-low', strongType:'branch',
+  { id:'E7', title:'两部争麟', weight:50, bondRewrite:{ bond:'ruisheng', weakType:'safe-low', strongType:'branch',
       weak:{ text:'请白泽定过境之礼', effects:{ fame:1 }, result:'白泽说：瑞兽过境，不迎不送，只把路让开，就是最大的礼。' },
       strong:{ text:'白泽麒麟同至阅图', effects:{ fame:2, loyalty:1, flag:'auspicious' }, result:'白泽与麒麟一同到了营门，不为别的，只为看一眼你的图卷。这一眼，比十句祥瑞之词都重。' } },
-    story:'探子来报：一头麒麟正沿着巡游的路缓缓而行，沿途村落都关门闭户——不是怕，是敬。',
-    focus:'迎，是攀附；拦，是造次。',
+    story:'一头麒麟踱进了两部的交界地，两边都说瑞兽是冲自家来的，迎麟的队伍在营外撞上，谁也不肯让路。眼看要从争迎变成争斗，双方的话事人都望向了你这个过路的写图人。',
+    focus:'麟只有一个，想做主的人却有两拨。',
     options:[
-      { label:'A', text:'让路并记入图志', axis:'shen', axisVal:1, effects:{ fame:1 }, result:'你下令全军让路，自己站在道旁记完了这一节。村里人说：这才是读书人。' },
-      { label:'B', text:'设香案迎瑞', effects:{ controversy:1, fame:1 }, result:'香案设了，麒麟绕道而行。热闹是热闹，就是有点尴尬。' },
-      { label:'C', text:'照常行军', taunt:true, effects:{ loyalty:1 }, result:'你说：各走各的路。麒麟在岔口停了停，竟与队伍并行了一程。' }
+      { label:'A', text:'临场调停争端', check:'command',
+        win:{ effects:{ fame:2 }, result:'你把规矩立在明处：麟自走，两部各退三里，谁先动手谁失麟。两边骂骂咧咧地退了——退完才发现，能让两边都退的人，比麟还稀奇。' },
+        lose:{ effects:{ controversy:2 }, result:'你话没说圆，两边反倒一起冲你来了：过路的凭什么断我们的事。这一场，调停没成，笑话成了。' } },
+      { label:'B', text:'让麟自择去向', axis:'shen', axisVal:1, effects:{ fame:1 }, result:'你让人把两边的仪仗都撤了，只留一条空路。麒麟在原地站了半晌，谁的门也没进，径自往山里去了。两边都说：它这是谁也不偏——倒成全了你不偏不倚的名声。' },
+      { label:'C', text:'止争先行，不掺和', axis:'ye', axisVal:1, effects:{ loyalty:1, health:-2 }, result:'你撂下一句「争完再走这条路」，带着队伍绕道先行。部众都服你这份干脆，只是绕道攀崖，你的手掌磨破了两处。' }
     ] },
-  { id:'E8', title:'河边老卒', weight:50,
-    story:'收队回营的路上，一个老卒问你：「头儿，咱们这一路，到底图什么？」',
-    focus:'这个问题，比任何一条大河都难渡。',
+  { id:'E8', title:'邓林之下', weight:40,
+    story:'邓林到了。桃木连绵，望不见边，老辈人说这林子是夸父的手杖化的——逐到这里，那位巨人倒下了，杖掷在地上，长成了这一片林。林子深处立着一截巨杖，杖身上隐约有字，年代太久，没人认得全。',
+    focus:'巨人追的是日头，你追的是图——杖上的字，是前人留给后来人的话。',
     options:[
-      { label:'A', text:'图大荒有序', axis:'shen', axisVal:1, effects:{ loyalty:1 }, result:'老卒点点头，又摇摇头。' },
-      { label:'B', text:'图一个痛快', taunt:true, axis:'ye', axisVal:1, effects:{ fame:1 }, result:'老卒把水囊递给你：「就冲这句，我跟你走完这一图。」' },
-      { label:'C', text:'图名留图卷', effects:{ ambition:1 }, result:'老卒笑了：「这话实在。」' }
+      { label:'A', text:'读杖上旧铭', axis:'shen', axisVal:1, check:'literature',
+        win:{ effects:{ fame:2, ambition:1 }, result:'你对着日光辨了半日，认出大半：记的是哪一年大旱、哪条河改道。你把铭文拓进图卷——写图的人，原来代代都有。' },
+        lose:{ effects:{ health:-3 }, result:'字迹被风雨啃得太狠，你盯得眼都花了，也没认出几句。下林时一脚踏空，崴了脚踝。' } },
+      { label:'B', text:'绕林而行', effects:{ loyalty:1 }, result:'你没进林。部众问起，你说：赶路的人，不打扰长眠的人。这话传回营里，老卒们都点了点头。' }
     ] },
-  { id:'E9', title:'兽市奇遇', weight:50, bondRewrite:{ bond:'sixiong', weakType:'risk-up', strongType:'branch',
+  { id:'E9', title:'穷奇幼兽', weight:50, bondRewrite:{ bond:'sixiong', weakType:'risk-up', strongType:'branch',
       weak:{ text:'让随行的凶兽血脉去相兽', check:'charisma', win:{ effects:{ perm:{ cavalry:1 }, troops:40 }, result:'识兽的眼光毒得很：是头好兽。你牵着它回营，队伍的脚力又添一分。' }, lose:{ effects:{ controversy:1 }, result:'看走了眼，兽牵回营就闹脾气。营里笑话了三天。' } },
       strong:{ text:'四凶齐至兽市相兽', check:'charisma', win:{ effects:{ perm:{ cavalry:2 }, troops:60 }, result:'四位凶名在外的角色轮番上前，兽贩子看傻了眼——烈兽只肯跟真正压得住它的人走。' }, lose:{ effects:{ controversy:1 }, result:'兽是烈兽，谁都没压住。兽贩子在背后笑出了声。' } } },
-    story:'过集市时，一个兽贩子拉住你，说他有一头「日行千里」的异兽，只卖压得住它的人。',
-    focus:'兽贩子的话，信三成都是多的。',
+    story:'猎户在山口捡着一只穷奇幼兽，毛还没长齐，奶牙都咬不动人，可那双眼睛——小小年纪，已经学会了先盯人的喉咙。猎户把它送到营里，只问一句：这东西，你们敢怎么处置？',
+    focus:'驯，是险；售，是利；放，是仁。',
     options:[
-      { label:'A', text:'当场试兽', check:'charisma',
-        win:{ effects:{ perm:{ cavalry:2 }, troops:60 }, result:'兽是真好兽。你牵着它走出集市，步子都轻了。' },
-        lose:{ effects:{ controversy:1 }, result:'兽牵回营里就尥蹶子。营里笑话你三天。' } },
-      { label:'B', text:'讨价还价', effects:{ network:1 }, result:'没买成，倒跟兽贩子混了个脸熟，往后换兽有了门路。' },
-      { label:'C', text:'这兽我征用了', taunt:true, axis:'ye', axisVal:1, effects:{ controversy:2, troops:40 }, result:'兽贩子敢怒不敢言。你牵着「征用兽」回营，名声也跟着跑了一路。' }
+      { label:'A', text:'亲驯为斥候', axis:'ye', axisVal:1, check:'might',
+        win:{ effects:{ perm:{ archery:1 }, troops:40 }, result:'你拿自己的手喂了它七日。第八日，它肯蹲在你肩上替队伍望风了——那双眼睛望出去，猎物无所遁形。营里多了四十号闻风来投的猎手，都说跟着能驯穷奇的人，有前途。' },
+        lose:{ effects:{ health:-6 }, result:'第三日夜里它就咬穿了帐布，顺带在你胳膊上留了四道口子。兽跑了，笑话留下了。' } },
+      { label:'B', text:'售予兽市', effects:{ network:1 }, result:'兽市的东家亲自来接，给的价不低，还跟你约下：往后有这样的好货，先紧着他。幼兽被抱走时回头看了你一眼。' },
+      { label:'C', text:'放归深山', effects:{ controversy:1, fame:1 }, result:'你把它送回捡着它的山口。猎户直摇头：放虎归山。可这事传开，沿途的兽们——还有人们——看你的眼神都柔和了几分。也有人嘀咕：妇人之仁。' }
     ] },
-  { id:'E10', title:'泽水暴涨', weight:50, bondRewrite:{ bond:'yuzhi', weakType:'risk-up', strongType:'branch',
+  { id:'E10', title:'九泽夜决', weight:50, bondRewrite:{ bond:'yuzhi', weakType:'risk-up', strongType:'branch',
       weak:{ text:'请治水一方先探水势', check:'physique', win:{ effects:{ fame:1 }, result:'探水的人踩着绳索先过了岸，全队跟着绳子回了营。' }, lose:{ effects:{ health:-5, troops:-50 }, result:'水比想的急，探水队被冲散一半，捞上来时人人灌了个饱。' } },
       strong:{ text:'相柳与治水者同至疏泽', check:'physique', win:{ effects:{ fame:2, loyalty:1, flag:'xiangliuCalmed' }, result:'相柳盘在泽心，治水者立在岸头——宿敌对视良久，竟一同把泽水疏开了。这一幕，你一字不漏记进了图里。' }, lose:{ effects:{ health:-8, troops:-80 }, result:'连疏泽的老手都被洪水掀翻。捞人，一直忙到天亮。' } } },
-    story:'夜里泽水暴涨，相柳栖居的九泽连成一片，归路被冲断，对岸就是大营，余粮只够一天。',
-    focus:'等水退，还是赌一把？',
+    story:'夜里水位涨得不对。相柳栖居的九泽连成了一片，泽口的土堤一夜之间被泡软了三处。守堤的部众跑来问你：一夜之间，要么跟相柳谈，要么跟水抢，要么让出低地——三个主意，你拿哪一个？',
+    focus:'水不等人，一夜三抉。',
     options:[
-      { label:'A', text:'泅渡疏泽', axis:'ye', axisVal:1, check:'physique',
-        win:{ effects:{ fame:1, flag:'xiangliuCalmed' }, result:'你第一个下水，绳子系在腰上。泽水疏开那一刻，连相柳都让出了水道。' },
-        lose:{ effects:{ health:-8, troops:-80 }, result:'水比想的急。捞上来时，你灌了一肚子泽水。' } },
-      { label:'B', text:'绕行远路', effects:{ health:-4 }, result:'多走了两天山路。脚底的水泡，比图卷的页数还厚。' },
-      { label:'C', text:'原地扎营等水退', effects:{ loyalty:1 }, result:'你下令生火造饭。天塌下来，也得先吃饱。' }
+      { label:'A', text:'与相柳立约', axis:'shen', axisVal:1, check:'politics',
+        win:{ effects:{ fame:1, flag:'xiangliuCalmed', network:1 }, result:'你立在泽边，把话说得明白：图成之前，泽水归它，堤路归人。九个脑袋轮流打量你，最后一起沉回水里——水位那一夜，稳住了。' },
+        lose:{ effects:{ troops:-80 }, result:'约没立成，堤先决了一处。低地营盘连夜抢搬，还是泡了大半辎重，折了些人手。' } },
+      { label:'B', text:'连夜疏浚', axis:'ye', axisVal:1, effects:{ health:-4, troops:-50 }, result:'你脱了外衣第一个下水。全队轮换着挖了半夜，硬生生给泽水掏出一条去路。天亮时人人瘫在泥里，你也灌了两口腥水。' },
+      { label:'C', text:'弃低地迁营', effects:{ troops:-100, loyalty:1 }, result:'你当机立断弃了低地。东西丢了不少，人一个没少——部众搬家时都在念叨：头儿舍得。' }
     ] },
-  { id:'E11', title:'疗伤老巫', weight:50,
-    story:'营门口来了个行医多年的老者，说专治兽伤人伤，只求一碗热饭。手艺是真不错，伤员排起了队。',
-    focus:'留，还是不留？',
+  { id:'E11', title:'甘木林', weight:40,
+    story:'转过山口，一片甘木林。果实累累，红得发亮，风过时满林是甜香。带路的老猎户拦住伸手的部众：都说甘木食之甘而不伤，可老辈人也说——越是不伤人的果子，越要先验明了再入口。',
+    focus:'甜的东西，先伸舌头还是先伸脑子？',
     options:[
-      { label:'A', text:'厚礼留营', effects:{ health:6, loyalty:1 }, result:'老者留下了。此后你队里受伤的，活下来的多了三成。' },
-      { label:'B', text:'赠粮送行', axis:'ye', axisVal:1, effects:{ fame:1 }, result:'老者走时留下一句话：你这队人，命都硬。' },
-      { label:'C', text:'怕有蹊跷，先查底细', axis:'shen', axisVal:1, check:'insight',
-        win:{ effects:{ fame:1 }, result:'查清了，就是个行医的。你亲自把人送出营门，赔了不是。' },
-        lose:{ effects:{ controversy:1 }, result:'查了三天才放人。医者是真医者，你的心也是真多疑。' } }
+      { label:'A', text:'辨木验性', check:'intellect',
+        win:{ effects:{ health:6 }, result:'你摘下一颗，先喂了林边的鸟，看了半日又自己尝了小半口。验明无毒，全队饱餐一顿，走路都轻快了。' },
+        lose:{ effects:{ health:-4 }, result:'你验错了一处：这一变种的甘木，未熟时涩麻伤胃。全队跟着你拉了半日肚子——记性倒是长了。' } },
+      { label:'B', text:'亲口先尝', axis:'ye', axisVal:1, effects:{ health:2, controversy:1 }, result:'你当众摘了一颗就咬。甜，真是甜。部众欢呼着扑向林子，只有人嘀咕：头儿这胆子，是拿命试出来的。' },
+      { label:'C', text:'记木绕行', effects:{ fame:1 }, result:'你把甘木林的位置、果期一笔笔记进图里，队伍一口没动绕了过去。后来有商队照着你的图在这里歇了脚——这份名声，是图挣的。' }
     ] },
-  { id:'E12', title:'夜访者', weight:50, bondRewrite:{ bond:'zhouye', weakType:'risk-up', strongType:'branch',
+  { id:'E12', title:'言兽夜叩', weight:50, bondRewrite:{ bond:'zhouye', weakType:'risk-up', strongType:'branch',
       weak:{ text:'托烛龙之名先会夜访者', check:'insight', win:{ effects:{ troops:120 }, result:'夜访者三言两语露了底：是真心来投。向导，已经就位。' }, lose:{ effects:{ troops:-100 }, result:'夜访者竟是探子。虚实被摸去不少，你折了一阵。' } },
       strong:{ text:'烛龙帝江同辨夜访者', check:'insight', win:{ effects:{ troops:200, fame:1, flag:'nightguest' }, result:'昼夜与混沌两位一同现身，夜访者再不敢藏私，把大荒东的密道全倒了出来。' }, lose:{ effects:{ troops:-150, health:-5 }, result:'夜访者的局做得太真。伏兵杀出时，烛龙的光都暗了一瞬。' } } },
-    story:'半夜，一个自称熟知大荒密道的人摸到营门，说愿为向导，只求图卷上记他一笔。',
-    focus:'夜访者的话，是这世上最贵的东西，也是最贱的。',
+    story:'三更，营门被轻轻叩了三下。一头从没见过的小兽蹲在门外，开口是人言：它说它走遍大荒，知道一条图上没有的密道，能省十日的路——条件只有一个：图卷写成时，记它一个名字。',
+    focus:'能言的兽说的话，是这世上最贵的东西，也是最贱的。',
     options:[
-      { label:'A', text:'厚待并试用', axis:'shen', axisVal:1, check:'insight',
-        win:{ effects:{ troops:200, fame:1 }, result:'三日后，密道尽头豁然开朗。你在图卷上，认认真真记了他一笔。' },
-        lose:{ effects:{ troops:-150, health:-5 }, result:'是探子。伏兵杀出来的时候，他笑得很得意。' } },
-      { label:'B', text:'留营不用', effects:{ network:1 }, result:'你好吃好喝养着他。真伪不论，这份气度传了出去。' },
-      { label:'C', text:'逐出营门立威', effects:{ controversy:2, fame:-1 }, result:'人被逐到了夜色里。那晚，营里没人说话。' }
+      { label:'A', text:'查图对质', axis:'shen', axisVal:1, check:'literature',
+        win:{ effects:{ troops:120, bondClues:'yuzhi' }, result:'你把它说的山口、泽岸逐条摊开图卷对质，它对得严丝合缝，还顺口纠正了你一处泽岸的画法。密道走通那日，一百二十名闻讯的散勇来投——都说这队人，连兽的话都查得明明白白，值得跟。' },
+        lose:{ effects:{ troops:-100 }, result:'它说的密道，尽头是一处死谷。等你发觉不对，原路已经被落石封了半截，硬闯出来，折了一队人。' } },
+      { label:'B', text:'留营观行', effects:{ network:1 }, result:'你给它留了营角的一处干草窝，不用也不逐。它住下就不走了，夜里常跟守夜的部众说话——这一来，营里跟沿途各部的话头，倒先通了。' },
+      { label:'C', text:'连夜逐之', axis:'ye', axisVal:1, effects:{ controversy:1, health:-2 }, result:'你连夜带人把它逐出三里。它走时也不恼，只留下一句：下回叩门，就不是这个价了。你追了半夜，脚底磨出了泡。' }
     ] },
-  { id:'E13', title:'洪水止雨', weight:50,
-    story:'连日的雨把营地泡成了泽国。应龙栖于云端的传闻传开，部众都等着你拿个主意：是等雨停，还是主动去会一会这场雨？',
-    focus:'雨不会听人话，但写图的人得有个说法。',
+  { id:'E13', title:'旱魃之野', weight:30, minCh:8,
+    story:'这一带，老辈人叫它「旱魃之野」——名字怎么来的，说法早传不清了，只剩下实景：连旱十日，河床裂得能塞进手掌，营里的水囊一日比一日轻。再走三日才有下一处水源。',
+    focus:'天不下雨，就靠人自己挖。',
     options:[
-      { label:'A', text:'登高筑坛止雨议程', axis:'shen', axisVal:1, check:'nerve',
-        win:{ effects:{ fame:2 }, result:'议程摆开的第三日，雨势竟真的弱了。是不是巧合不重要，重要的是全营都信了：这位头儿，连雨都敢管。' },
-        lose:{ effects:{ health:-4 }, result:'雨没停，人先淋透了。图卷上这一页，你只写了四个字：雨大，待晴。' } },
-      { label:'B', text:'冒雨抢修营垒', axis:'ye', axisVal:1, effects:{ loyalty:1 }, result:'你带着全队在雨里抢修营垒。雨停那天，人人像从水里捞出来的，可营还在。' },
-      { label:'C', text:'迁营高地', effects:{ troops:-50 }, result:'你迁了营。地势是高了，东西也丢了不少。' }
+      { label:'A', text:'组织凿井', check:'command',
+        win:{ effects:{ loyalty:2 }, result:'你按地势圈了三处洼地，全队轮班往下挖。第三日黄昏，井底终于洇出湿泥——那一声欢呼，比打赢一场还响。' },
+        lose:{ effects:{ health:-5 }, result:'三口井挖到底都是干土。你把自己的水囊分给了伤员，撑到水源地时，嘴唇裂得说不出话。' } },
+      { label:'B', text:'向邻部借水道', effects:{ network:1, controversy:1 }, result:'邻部的水道肯借，价钱是往后图卷的水文一节，先抄一份给他们。这笔交易，有人说划算，有人说你把图的本钱都押出去了。' },
+      { label:'C', text:'记旱象迁营高地', axis:'shen', axisVal:1, effects:{ troops:-50 }, result:'你把十日的旱象、裂土、枯井一一记入图注，带队迁上高地。高地风大，夜里却听得见远处的水声——记下来，留给后来人。' }
     ] },
-  { id:'E14', title:'说图人', weight:50,
-    story:'休整的镇子上，说图人正讲你的巡游——讲得比你本人威风十倍，底下叫好声一片。图卷还没写完，故事倒先传遍了。',
-    focus:'听，还是不听？',
+  { id:'E14', title:'两图相校', weight:30, minCh:5,
+    story:'歇脚的镇口，你撞见了另一队写图人。他们从西边来，走了三年，图卷摊开有半间屋子大。两队人蹲在同一块青石板上，把各自的图铺开——同一座山，两卷图上，山势差了半寸。',
+    focus:'图与图碰面的时候，错的先脸红，真的人先伸手。',
     options:[
-      { label:'A', text:'打赏并听完', axis:'shen', axisVal:1, effects:{ fame:2, ambition:1 }, result:'你坐在最后一排听到散场。原来在别人嘴里，你是这样的人。' },
-      { label:'B', text:'低调走开', effects:{ controversy:-1 }, result:'你压低斗笠走了。名声这东西，远看比近看好看。' },
-      { label:'C', text:'我还能更威风', taunt:true, axis:'ye', axisVal:1, effects:{ fame:1, controversy:1 }, result:'你站起来纠正了三处「不够威风」的地方。满堂哄笑，第二天传遍三镇。' }
+      { label:'A', text:'逐条互校', check:'intellect',
+        win:{ effects:{ fame:2, bondClues:'ruisheng' }, result:'你们对着日头校了整整一日：你改了三处，他改了五处。分手时他把一页麒麟出没的记录抄给了你，说：这一页，放你图里比放我图里传得远。' },
+        lose:{ effects:{ controversy:1 }, result:'校到最后，两边都觉得对方错得离谱，不欢而散。只是夜里你睡不着，又把图摊开看了半宿——人家有两处，好像真比你准。' } },
+      { label:'B', text:'交换抄本', effects:{ network:1 }, result:'你们交换了抄本，约好图成之日互寄一份。写图的人本就该互相递一把伞。' },
+      { label:'C', text:'各写各的', effects:{ ambition:1, controversy:1 }, result:'你合上自己的图卷：各走各的路，各写各的图。对方耸耸肩走了。部众说你有骨气，也有说你太倔的。' }
     ] }
 ];
 
@@ -1304,7 +1316,7 @@ const S = {
   ovr: 0, deBuPei: 0, title: '', startFaction: '',
   ch: 0, health: 100, troops: 0,
   sec: { fame:0, network:0, loyalty:0, ambition:0, controversy:0 },
-  flags: [], taunts: 0, personalFail: 0, merit: 0, scenes: 0,
+  flags: [], bondClues: [], taunts: 0, personalFail: 0, merit: 0, scenes: 0,  /* bondClues：事件线索记账（定案预留） */
   bios: [], eventsUsed: [], eventsFired: 0,
   finalChoice: null, deadPending: false, endingId: null, score: 0,
   axis: { shen: 0, ye: 0 },  /* 双轴：神性/野性，只挂抉择 */
@@ -2183,6 +2195,7 @@ function applyEffects(eff) {
     }
     else if (k === 'perm') { for (const pk of Object.keys(v)) S.attrs[pk] = clamp(S.attrs[pk] + v[pk], 40, 99); }
     else if (k === 'flag') { if (!S.flags.includes(v)) S.flags.push(v); }
+    else if (k === 'bondClues') { S.bondClues = S.bondClues || []; if (!S.bondClues.includes(v)) S.bondClues.push(v); }  /* 事件重做：羁绊线索写入（定案 bondClues，只预留记账） */
     else if (SEC_KEYS.includes(k)) {
       let val = v;
       if (k === 'fame' && val > 0 && S.fate && S.fate.fameMul) val = Math.round(val * S.fate.fameMul);  /* v5.6 天命：威名收益 */
@@ -2208,6 +2221,7 @@ function effectSummary(eff) {
     }
     else if (k === 'perm') { for (const pk of Object.keys(v)) parts.push(`${ATTR_NAMES[pk]}历练${v[pk] > 0 ? '+' : ''}${v[pk]}`); }
     else if (k === 'flag') { /* 标记不在预览里剧透 */ }
+    else if (k === 'bondClues') { /* 线索不在预览里剧透 */ }
     else if (SEC_KEYS.includes(k)) parts.push(`${SEC_NAMES[k]}${v > 0 ? '+' : ''}${v}`);
   }
   return parts.length ? parts.join('·') : '无得失';
@@ -2345,6 +2359,7 @@ function startChapters() {
   S.gambleArm = false; S.selfStreak = 0;
   S.bios = []; S.eventsUsed = []; S.eventsFired = 0; S.finalChoice = null; S.deadPending = false;
   S.axis = { shen: 0, ye: 0 };
+  S.bondClues = [];
   S.jinnang = false; S.rewindLeft = 2;
   S.lastSettle = null; S.rewindSnap = null; S.rewindAvail = false; S.evDoneCh = null;
   if (S.scheme === 'qimou') S.jinnang = true;  /* v5.19 方略·奇谋：自带息壤 */
@@ -2523,7 +2538,6 @@ function chooseChapterOption(opt) {
     };
   }
   if (opt.taunt) S.taunts++;
-  applyAxis(opt);
   let branch, head = '', extraNote = '';
   const wagerArmed = !!S.gambleArm && !!opt.check && !(S.dailyMod && S.dailyMod.blind);  /* v5.26 拼一把武装态（进入结算即清，防残留） */
   S.gambleArm = false;
@@ -2692,7 +2706,7 @@ function eventRenderOptions(ev) {
 
 /* ---------- 事件（任务书 §4.2-5 / §6） ---------- */
 function drawEvent() {
-  let pool = REGULAR_POOL.filter(e => !S.eventsUsed.includes(e.id));
+  let pool = REGULAR_POOL.filter(e => !S.eventsUsed.includes(e.id) && (!e.minCh || S.ch >= e.minCh));  /* 事件重做：minCh 章节下限（晚局事件早期不入池） */
   const e2 = EVENTS.find(e => e.id === 'E2');
   if (S.deBuPei >= 2 && !S.eventsUsed.includes('E2')) pool = pool.concat([e2]);
   if (!pool.length) return null;
@@ -2735,6 +2749,7 @@ function chooseEventOption(opt) {
   const optIdx = curEventOpts ? curEventOpts.indexOf(opt) : (ev ? ev.options.indexOf(opt) : -1);
   if (opt.bondOpt && S.tele) { if (opt.form === 'weak') S.tele.eWeakPick++; else if (opt.form === 'strong') S.tele.eStrongPick++; }  /* v5.26 E 遥测 */
   if (opt.taunt) S.taunts++;
+  applyAxis(opt);  /* 双轴挂事件选项结算（修复批 B19：原锚点误中 chooseChapterOption 同名行，事件轴标签从未生效） */
   let result = '';
   let roll = null, rate = null, ok = null, evHead = '', evBody = '', evNote = '';
   if (opt.check) {
@@ -3346,6 +3361,7 @@ function endingExtraHTML() {
     parts.push(`<p class="hint" style="margin:2px 0;">明日词缀「${t.mod.name}」· 目标「${t.goal.name}」，记得回来。</p>`);
   }
   if (S.runSeed) parts.push(`<p class="hint" style="margin:2px 0;">本局种子 <b>${seedCodeOf(S.runSeed)}</b> —— 把码发给朋友，TA 能在首页打同一盘。</p>`);
+    if (S.flags && S.flags.includes('homegoing')) parts.push(`<p style="margin:2px 0;">🕯 图成之日，归骨之人有名——你送回故山的那位老部众，名字写在了图卷的最后一页。</p>`);
   return parts.join('');
 }
 
