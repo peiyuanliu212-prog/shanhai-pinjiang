@@ -310,6 +310,10 @@ h2::before { content: ''; position: absolute; left: 0; top: 3px; bottom: 3px; wi
 .series-tier .st-info { flex:1; min-width:0; }
 .series-tier .st-name { font-weight:700; font-size:14px; }
 .series-tier .st-cond { font-size:12px; color:#8a7f6a; }
+#liezhuan-modal .modal-title { font-family: 'LSBrush', 'Noto Serif SC', 'Songti SC', serif; }
+.liezhuan-lead { font-family: "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif; font-size:13px; line-height:1.9; color:#6b5d43; border-bottom:1px dashed #e7ddc8; padding-bottom:10px; margin:4px 0 6px; }
+.liezhuan-body p { font-family: "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif; font-size:15px; line-height:2; margin:10px 0; text-align:justify; }
+.liezhuan-body p.lz-end { text-align:right; }
 .series-claim { flex:none; padding:7px 14px; }
 .series-claim[disabled] { opacity:.55; }
 </style>
@@ -373,6 +377,8 @@ body { background: #EFE8D8; color: #26313B; }
       <button class="btn-ghost" id="btn-bonds" style="width:100%;margin-top:8px;">💞 羁绊一览 <span id="bonds-seen-count"></span></button>
       <button class="btn-ghost" id="btn-shop" style="width:100%;margin-top:8px;">🏯 功业商店 <span id="shop-bal"></span></button>
       <button class="btn-ghost" id="btn-series" style="width:100%;margin-top:8px;">🧩 拼将令 <span id="series-chip"></span></button>
+      <button class="btn-ghost" id="btn-league" style="width:100%;margin-top:8px;">🏆 参赛新作 · 《我在联赛当经理》</button>
+      <div class="hero-note" id="league-note">参赛新作《我在联赛当经理》：当经理买人打联赛，离线也在攒收益。比赛冲 5000 人，点开玩两分钟帮大忙。</div>
       <button class="btn-ghost" id="btn-archive" style="width:100%;margin-top:8px;">📂 存档</button>
       <button class="btn-ghost" id="btn-notice" style="width:100%;margin-top:8px;">📜 更新公告 <span class="ndot hidden" id="notice-dot"></span></button>
       <div class="hero-note">历史爱好者自制小游戏，非官方 · 单局约 15 分钟</div>
@@ -645,6 +651,13 @@ body { background: #EFE8D8; color: #26313B; }
   <p class="hint" style="text-align:center;">六款拼将，同一个你。在任意一作里打通任意一个结局，就点亮它那一格；集的不是数值，是你亲自走完的每一界。</p>
   <div id="series-body"><p class="hint" style="text-align:center;">正在向云端对账…</p></div>
   <button class="btn-primary btn-big" id="btn-series-close" style="margin-top:12px;">关闭</button>
+</div></div>
+
+<div id="liezhuan-modal" class="modal hidden"><div class="modal-inner">
+  <div class="modal-title">📜 六合拼将传</div>
+  <p class="liezhuan-lead" id="liezhuan-lead"></p>
+  <div class="liezhuan-body" id="liezhuan-body"></div>
+  <button class="btn-primary btn-big" id="btn-liezhuan-close" style="margin-top:12px;">关闭</button>
 </div></div>
 
 <div id="directed-modal" class="modal hidden"><div class="modal-inner">
@@ -3600,7 +3613,7 @@ try { renderDailyCard(); } catch (e) {}  /* v5.19：首屏即渲染今日挑战�
 
 /* ---------- v5.15 更新公告 ---------- */
 const NOTICES = [
-  { v: 'v1.2', d: '11月18日', t: '新作上线 · 《我在联赛当经理》', items: ['同作者新作已经上线——组建你的足球俱乐部，签约球员、征战联赛，下线也在成长。'], btn: '去玩《我在联赛当经理》', url: 'https://activity-static.hupu.com/shaper/published/app_e3301d52aa/index.html?shaper_preview=1' },
+  { v: 'v1.3', d: '11月19日', t: '新作参赛中，帮我冲一次榜', items: ['我在虎扑 AI 工坊主题创作大赛的新作《我在联赛当经理》正在冲运营期数据：累计访问过 5000 才算达标。点下方按钮直接过去玩，买人、排阵容、打联赛，关掉游戏也在攒收益，第二天回来领。每天打开一次，就是最实在的支持。'], btn: '去玩《我在联赛当经理》', url: 'https://activity-static.hupu.com/shaper/published/app_e3301d52aa/index.html?shaper_preview=1' },
   { v: 'v1.1', d: '11月18日', t: '拼将令 · 六作同辉', items: [
     '🧩 拼将令上线：首页新增「🧩 拼将令」入口——大荒拾卷、封神拼将、水浒拼将、巨星拼图、大荒拾卷、篮球有嘻哈六作同记一本令；在任意一作里打通任意一个结局，就点亮它那一格。你以前在图鉴里打出的结局，进游戏打开本面板会自动对账点亮，不用重打',
     '🏅 三档系列奖励：点亮 2 作领称号「初入乱世」（全服榜昵称带前缀，可在拼将令面板里开关）；点亮 4 作领系列海报边框（海报页自动生效，优先于功业商店边框）；点亮 6 作、且至少 3 作打出非最易结局，领限定称号「六合拼将」＋纪念列传',
@@ -4545,7 +4558,8 @@ function seriesRenderPanel() {
     const btn = claimed ? '<button class="btn-ghost series-claim" disabled>已领取</button>'
       : can ? `<button class="btn-primary series-claim" data-series-claim="${t.tier}">领取</button>`
       : `<button class="btn-ghost series-claim" disabled>${(t.tier === 6 && me.litCount >= 6) ? '差非最易结局' : ('差 ' + (t.tier - me.litCount) + ' 作')}</button>`;
-    return `<div class="series-tier"><div class="st-info"><div class="st-name">${t.tier} 档 · ${t.name}</div><div class="st-cond">${t.cond}</div></div>${btn}</div>`;
+    const lz = (t.tier === 6 && claimed) ? '<button class="btn-primary series-liezhuan" id="btn-liezhuan">📜 纪念列传</button>' : '';
+    return `<div class="series-tier"><div class="st-info"><div class="st-name">${t.tier} 档 · ${t.name}</div><div class="st-cond">${t.cond}</div></div>${btn}${lz}</div>`;
   }).join('');
   const nextGame = SERIES_ORDER.find(g => !(me.games[g] && me.games[g].lit));
   const nextHtml = nextGame ? `<p class="hint" style="margin-top:10px;">下一站推荐：《${lbEsc((me.games[nextGame] || {}).name || '')}》——${SERIES_TIPS[nextGame]}。在虎扑里搜游戏名就能开玩，同一个账号，进度自动记在这本令上。</p>` : '<p class="hint" style="margin-top:10px;">六界全通，无处不是归途。这本令，齐了。</p>';
@@ -4553,6 +4567,8 @@ function seriesRenderPanel() {
   const titleHtml = title ? `<label class="hint" style="display:block;text-align:center;margin-top:10px;"><input type="checkbox" id="series-title-toggle" ${seriesTitleOn() ? 'checked' : ''}> 在全服榜昵称前显示称号「${title}」</label>` : '';
   body.innerHTML = `<p style="text-align:center;margin:2px 0;">已点亮 <b>${me.litCount}/6</b> · 非最易 <b>${me.hardCount}</b> 作${title ? ` · 我的称号「${title}」` : ''}</p><div class="series-grid">${cells}</div>${tiers}${nextHtml}${titleHtml}`;
   body.querySelectorAll('[data-series-claim]').forEach(b => { b.onclick = () => seriesClaim(Number(b.dataset.seriesClaim)); });
+  const lzb = body.querySelector('#btn-liezhuan');
+  if (lzb) lzb.onclick = openLiezhuan;
   const tg = $('series-title-toggle');
   if (tg) tg.onchange = () => { try { localStorage.setItem('shanhai_series_title_on', tg.checked ? '1' : '0'); } catch (e) {} showGameToast(tg.checked ? '榜单称号已开启，下次上榜生效' : '榜单称号已关闭'); };
 }
@@ -4572,8 +4588,32 @@ async function openSeries() {
   seriesRenderPanel();
 }
 $('btn-series').onclick = openSeries;
+$('btn-league').onclick = openNotices;  /* v5.26 导流最强档：首页常驻入口点击打开导流公告弹窗（不自动弹、不直跳） */
 $('btn-series-close').onclick = () => $('series-modal').classList.add('hidden');
 $('series-modal').addEventListener('click', e => { if (e.target === $('series-modal')) $('series-modal').classList.add('hidden'); });
+
+/* 拼将令 6 档纪念列传（文案定版 2026-11-18，正稿《六合拼将传》＋短稿；只在服务端已领 6 档时经面板按钮打开，内容不进静态 DOM、未领不见） */
+const SERIES_LIEZHUAN_LEAD = '传曰：有客遍历六界——汉末夺技，拼十二术于一身，再造乾坤；封神逆榜，天命册上亲手改字；水泊聚义，义气功业两不负；篮坛拾片，拼巨星成队，捧杯登顶；大荒作传，万兽之名尽入图卷；巡演二十城，天桥唱至封神。六面令亮之日，客曰：所得不在令，在路上。后之来者当知：拼将之义，不在胜负之数，而在遍历之实。';
+const SERIES_LIEZHUAN = [
+  '传曰：有客自远方来，无名无氏，囊中惟一令，令上无字。',
+  '初至汉末，天下鼎沸，群雄各拥绝技自重：吕布之勇、诸葛之智、曹操之略，皆不可近。客不求人赠，不向人借，只以一局为约，赢一技，取一技，十二技拼于一身。德不配位者，技反噬其主——客三起三落，病榻上写过遗书，白门楼前救过人。再造乾坤那一日，满座皆惊：原来无名之辈，真能把天下的本事，一件一件拼成自己的命。',
+  '继而登封神之台。天命有册，名姓皆在册上；客偏不信册，问姜子牙：榜上若无我名，又当如何？遂入阐截之间，夺宝、结盟、逆榜，一路打到榜文改字。封神次席不足贵，贵在那句「改写」——天命写好的，他偏要亲手涂掉一行。',
+  '台下水泊，又是另一番天地。这里不讲天命，讲义气；也不全讲义气，还讲功业。客与草莽同席大碗，分金银，也分去留。一百零八将的影子在梁山上空聚散，客立于泊边说：义要守，路也要自己选。后星聚天罡，水泊为之一空。',
+  '再入篮坛，不见刀兵，见冠冕。此界以拼图论英雄：巨星之技散作碎片，落满一地，客俯身拾取，一片一片，拼出一支横跨时代的队伍。抢七之夜，他拼至报销，又捧杯登顶——此界中人这才明白：所谓巨星，不过是有人把每一片都拾齐了。',
+  '终行大荒。瘴气万里，异兽载道，神性与野性如两河分流，世人必择其一。客两河皆涉：记万兽之名于图卷，登天阙，也困荒丘；吞天凶主的煞气沾过衣角，守图之人的灯火也照过夜路。图卷成神之日，大荒无一人不识此客——他不是来征服大荒的，他是来给大荒作传的。',
+  '最后至巡演之城，二十城灯火如昼。此界无疆场，有舞台；无功业，有声名。客以说唱为兵，巡演二十城，天桥唱到封神台，一季无虚场。至此六界俱遍，囊中之令，六面皆亮。',
+  '或问客：六界风物各异，所求者何？客出令示人，令上仍无一字。曰：「所得不在令上，在路上。每一局都是我亲自走完的——捷径我不是没见过，是没走过。」',
+  '后之来者，持令入局，当记此语：<b>拼将之义，不在胜负之数，而在一人之身，遍历六界之实。</b>',
+  '谨传。'
+];
+function openLiezhuan() {
+  const lead = $('liezhuan-lead'); if (lead) lead.textContent = SERIES_LIEZHUAN_LEAD;
+  const bd = $('liezhuan-body'); if (!bd) return;
+  bd.innerHTML = SERIES_LIEZHUAN.map((p, i) => `<p${i === SERIES_LIEZHUAN.length - 1 ? ' class="lz-end"' : ''}>${p}</p>`).join('');
+  $('liezhuan-modal').classList.remove('hidden');
+}
+$('btn-liezhuan-close').onclick = () => $('liezhuan-modal').classList.add('hidden');
+$('liezhuan-modal').addEventListener('click', e => { if (e.target === $('liezhuan-modal')) $('liezhuan-modal').classList.add('hidden'); });
 setTimeout(() => { seriesBackfill(); }, 1600);  /* 进游戏静默回填＋对账（站外无 SDK 时自动跳过） */
 
 const ENDING_HINTS = {
